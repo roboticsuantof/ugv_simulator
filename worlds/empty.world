@@ -1,0 +1,688 @@
+<?xml version="1.0">
+<sdf version='1.7'>
+  <world name='default'>
+    <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+    <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+    <gravity>0 0 -9.8</gravity>
+    <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <physics type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 0.7 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <wind/>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>0</latitude_deg>
+      <longitude_deg>0</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+
+    <model name='x1'>
+      <enable_wind>1</enable_wind>
+      <static>0</static>
+      <link name='base'>
+        <inertial>
+          <pose>-0.00065 -0.085 0.062 0 -0 0</pose>
+          <mass>46.034</mass>
+          <inertia>
+            <ixx>0.613201</ixx>
+            <ixy>-0.0236401</ixy>
+            <ixz>-0.1197</ixz>
+            <iyy>1.7496</iyy>
+            <iyz>-0.00154411</iyz>
+            <izz>2.0406</izz>
+          </inertia>
+        </inertial>
+        <collision name='base_collision'>
+          <pose>0 0 0.061875 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.9874 0.5709 0.12375</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='base_collision_1'>
+          <pose>0 0 0.185625 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.78992 0.5709 0.12375</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='top_plate_collision'>
+          <pose>0.0812 0 0.245 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/top_plate.dae</uri>
+            </mesh>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <collision name='top_plate_collision_2'>
+          <pose>0.0812 0 0.245 0 -0 0</pose>
+          <geometry>
+            <box>
+              <size>0.32 0.41 0.09</size>
+            </box>
+          </geometry>
+          <max_contacts>10</max_contacts>
+          <surface>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+            <friction>
+              <torsional>
+                <ode/>
+              </torsional>
+              <ode/>
+            </friction>
+          </surface>
+        </collision>
+        <visual name='base_visual'>
+          <pose>0 0 0 0 0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/chassis.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='center_left_headlight_visual'>
+          <pose>0.485766 0.0844 0.124431 0 0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/headlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='center_right_headlight_visual'>
+          <pose>0.485766 -0.0844 0.124431 0 0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/headlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='left_headlight_visual'>
+          <pose>0.461459 0.216803 0.124431 0 0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/headlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_1'>
+          <pose>0.066047 0.212211 0.209188 -3.14159 1.57079 -1.60259</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_2'>
+          <pose>-0.066047 0.212211 0.209188 -3.14159 1.57079 -1.60259</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_3'>
+          <pose>-0.42493 0 0.209188 3.14159 1.57079 7e-06</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_4'>
+          <pose>-0.42493 0.13619 0.209188 3.14159 1.57079 7e-06</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_5'>
+          <pose>-0.42493 -0.13619 0.209188 3.14159 1.57079 7e-06</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='right_headlight_visual'>
+          <pose>0.461459 -0.216803 0.124431 0 0 -3.14159</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/headlight.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_6'>
+          <pose>0.066047 -0.212211 0.209188 3.14159 1.57079 1.60259</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='marker_visual_7'>
+          <pose>-0.066047 -0.212211 0.209188 3.14159 1.57079 1.60259</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/led.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name='top_plate_visual'>
+          <pose>0.0812 0 0.245 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/top_plate.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <light name='left_light_source' type='spot'>
+          <pose>0.514147 0.216803 0.18 3.14159 1.56859 0</pose>
+          <attenuation>
+            <range>2</range>
+            <linear>0</linear>
+            <constant>0.1</constant>
+            <quadratic>0.0025</quadratic>
+          </attenuation>
+          <diffuse>0.8 0.8 0.5 1</diffuse>
+          <specular>0.8 0.8 0.5 1</specular>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+          <direction>0 0 -1</direction>
+        </light>
+        <light name='center_left_light' type='spot'>
+          <pose>0.538 0.0844 0.18 3.14159 1.56859 0</pose>
+          <attenuation>
+            <range>2</range>
+            <linear>0</linear>
+            <constant>0.1</constant>
+            <quadratic>0.0025</quadratic>
+          </attenuation>
+          <diffuse>0.8 0.8 0.5 1</diffuse>
+          <specular>0.8 0.8 0.5 1</specular>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+          <direction>0 0 -1</direction>
+        </light>
+        <light name='center_right_light' type='spot'>
+          <pose>0.538 -0.0844 0.18 3.14159 1.56859 0</pose>
+          <attenuation>
+            <range>2</range>
+            <linear>0</linear>
+            <constant>0.1</constant>
+            <quadratic>0.0025</quadratic>
+          </attenuation>
+          <diffuse>0.8 0.8 0.5 1</diffuse>
+          <specular>0.8 0.8 0.5 1</specular>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+          <direction>0 0 -1</direction>
+        </light>
+        <light name='right_light_source' type='spot'>
+          <pose>0.514147 -0.216803 0.18 3.14159 1.56859 0</pose>
+          <attenuation>
+            <range>2</range>
+            <linear>0</linear>
+            <constant>0.1</constant>
+            <quadratic>0.0025</quadratic>
+          </attenuation>
+          <diffuse>0.8 0.8 0.5 1</diffuse>
+          <specular>0.8 0.8 0.5 1</specular>
+          <spot>
+            <inner_angle>1</inner_angle>
+            <outer_angle>1.1</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+          <direction>0 0 -1</direction>
+        </light>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <link name='front_left_wheel'>
+        <pose>0.256 0.2854 0.03282 0 -0 0</pose>
+        <inertial>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.02467</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04411</iyy>
+            <iyz>0</iyz>
+            <izz>0.02467</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 -1.57079 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='front_left_wheel_joint' type='revolute'>
+        <parent>base</parent>
+        <child>front_left_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='front_right_wheel'>
+        <pose>0.256 -0.2854 0.03282 0 -0 0</pose>
+        <inertial>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.02467</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04411</iyy>
+            <iyz>0</iyz>
+            <izz>0.02467</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 -1.57079 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='front_right_wheel_joint' type='revolute'>
+        <child>front_right_wheel</child>
+        <parent>base</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rear_left_wheel'>
+        <pose>-0.256 0.2854 0.03282 0 -0 0</pose>
+        <inertial>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.02467</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04411</iyy>
+            <iyz>0</iyz>
+            <izz>0.02467</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 -1.57079 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rear_left_wheel_joint' type='revolute'>
+        <parent>base</parent>
+        <child>rear_left_wheel</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name='rear_right_wheel'>
+        <pose>-0.256 -0.2854 0.03282 0 -0 0</pose>
+        <inertial>
+          <mass>2.637</mass>
+          <inertia>
+            <ixx>0.02467</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.04411</iyy>
+            <iyz>0</iyz>
+            <izz>0.02467</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <collision name='collision'>
+          <pose>0 0 0 -1.57079 0 0</pose>
+          <geometry>
+            <cylinder>
+              <length>0.1143</length>
+              <radius>0.1651</radius>
+            </cylinder>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>0.1</mu>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>/home/mauro/.ignition/fuel/fuel.ignitionrobotics.org/openrobotics/models/x1 ugv - fortress param demo/1/meshes/wheel.dae</uri>
+            </mesh>
+          </geometry>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>1</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <joint name='rear_right_wheel_joint' type='revolute'>
+        <child>rear_right_wheel</child>
+        <parent>base</parent>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>-1.79769e+308</lower>
+            <upper>1.79769e+308</upper>
+          </limit>
+          <dynamics>
+            <spring_reference>0</spring_reference>
+            <spring_stiffness>0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <pose>-0.089413 -0.405844 0 0 -0 0</pose>
+    </model>
+    
+    <state world_name='default'>
+      <sim_time>201 603000000</sim_time>
+      <real_time>204 47243700</real_time>
+      <wall_time>1660928701 846376711</wall_time>
+      <iterations>201603</iterations>
+      <model name='ground_plane'>
+        <pose>0 0 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+      <model name='x1'>
+        <pose>-0.097727 -0.247518 0.13228 0 -0 0.059314</pose>
+        <scale>1 1 1</scale>
+        <link name='base'>
+          <pose>-0.097727 -0.247518 0.13228 0 -0 0.059314</pose>
+          <velocity>-5.4e-05 0.000207 0.004713 -0.019574 -0.00116 0.000105</velocity>
+          <acceleration>-0.15931 1.12353 12.7962 -2.05124 -0.700268 -1.92084</acceleration>
+          <wrench>-7.33366 51.7204 589.058 0 -0 0</wrench>
+        </link>
+        <link name='front_left_wheel'>
+          <pose>0.140905 0.052555 0.1651 -0 -0.141704 0.059314</pose>
+          <velocity>-0.000131 0.000867 -0.001125 -0.018405 -0.000749 0.000121</velocity>
+          <acceleration>0.688503 -1.40353 -13.8045 2.10637 1.44917 1.25485</acceleration>
+          <wrench>1.81558 -3.7011 -36.4024 0 -0 0</wrench>
+        </link>
+        <link name='front_right_wheel'>
+          <pose>0.174742 -0.517241 0.1651 -6e-06 0.032274 0.059315</pose>
+          <velocity>-5e-05 0.000733 0.010686 -0.004441 -0.000301 3.8e-05</velocity>
+          <acceleration>-0.373326 -1.60684 27.4179 -0.515789 0.679218 -1.91854</acceleration>
+          <wrench>-0.984461 -4.23723 72.3011 0 -0 0</wrench>
+        </link>
+        <link name='rear_left_wheel'>
+          <pose>-0.370195 0.022204 0.1651 -0 -0.1386 0.059314</pose>
+          <velocity>-0.000142 0.000794 -0.001124 -0.01838 -0.000807 0.000153</velocity>
+          <acceleration>0.616284 -0.450808 -13.8041 -1.01016 1.2663 -1.8538</acceleration>
+          <wrench>1.62514 -1.18878 -36.4014 0 -0 0</wrench>
+        </link>
+        <link name='rear_right_wheel'>
+          <pose>-0.336358 -0.547592 0.1651 -6e-06 0.031631 0.059315</pose>
+          <velocity>-5.4e-05 0.000691 0.010688 -0.004183 -0.000324 4.5e-05</velocity>
+          <acceleration>-0.438082 -0.624652 27.4195 -0.258787 0.654577 -1.91047</acceleration>
+          <wrench>-1.15522 -1.64721 72.3053 0 -0 0</wrench>
+        </link>
+      </model>
+      <light name='sun'>
+        <pose>0 0 10 0 -0 0</pose>
+      </light>
+    </state>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>1.43947 -1.59026 1.01808 0 0.408497 2.44958</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui>
+  </world>
+</sdf>
