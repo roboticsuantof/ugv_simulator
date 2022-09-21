@@ -3,7 +3,7 @@
   <model name='x1'>
       <enable_wind>1</enable_wind>
       <static>0</static>
-      <link name='base'>
+      <link name='base_link'>
         <inertial>
           <pose>-0.00065 -0.085 0.062 0 -0 0</pose>
           <mass>46.034</mass>
@@ -326,7 +326,7 @@
         <kinematic>0</kinematic>
       </link>
       <joint name='front_left_wheel_joint' type='revolute'>
-        <parent>base</parent>
+        <parent>base_link</parent>
         <child>front_left_wheel</child>
         <axis>
           <xyz>0 1 0</xyz>
@@ -391,7 +391,7 @@
       </link>
       <joint name='front_right_wheel_joint' type='revolute'>
         <child>front_right_wheel</child>
-        <parent>base</parent>
+        <parent>base_link</parent>
         <axis>
           <xyz>0 1 0</xyz>
           <limit>
@@ -454,7 +454,7 @@
         <kinematic>0</kinematic>
       </link>
       <joint name='rear_left_wheel_joint' type='revolute'>
-        <parent>base</parent>
+        <parent>base_link</parent>
         <child>rear_left_wheel</child>
         <axis>
           <xyz>0 1 0</xyz>
@@ -519,7 +519,7 @@
       </link>
       <joint name='rear_right_wheel_joint' type='revolute'>
         <child>rear_right_wheel</child>
-        <parent>base</parent>
+        <parent>base_link</parent>
         <axis>
           <xyz>0 1 0</xyz>
           <limit>
@@ -605,14 +605,14 @@
       </link>
       <joint name='joint' type='fixed'>
         <child>os1_sensor_link</child>
-        <parent>base</parent>
+        <parent>base_link</parent>
         <pose> 0 0 0 0 0 0</pose>
       </joint>
       
       <plugin name="gps_controller_siar" filename="libplugin_gazebo_ros_gps.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>5.0</updateRate>
-        <bodyName>base</bodyName>
+        <bodyName>base_link</bodyName>
         <robotBaseFrame>base_link</robotBaseFrame>
         <!-- <frameId>siar/base_link</frameId> -->
         <topicName>gps</topicName>
@@ -626,6 +626,45 @@
         <referenceHeading>0</referenceHeading>
         <referenceAltitude>0</referenceAltitude>
     </plugin>
-
+    <plugin name="diffdrive_plugin_multi_wheel" filename="libplugin_diffdrive_plugin_multi_wheel.so">
+      <robotNamespace>gazebo</robotNamespace>
+    <!-- Plugin update rate in Hz -->
+    <updateRate>10</updateRate>
+    <!-- Name of left joint, defaults to `left_joint` -->
+    <!--leftJoint>base_link_left_wheel_joint</leftJoint-->
+    <leftJoints>rear_left_wheel_joint front_left_wheel_joint</leftJoints>
+    <!-- Name of right joint, defaults to `right_joint` -->
+    <!--rightJoint>base_link_right_wheel_joint</rightJoint-->
+    <rightJoints>rear_right_wheel_joint front_right_wheel_joint</rightJoints>
+    <!-- The distance from the center of one wheel to the other, in meters, defaults to 0.34 m -->
+    <wheelSeparation>0.5380</wheelSeparation>
+    <!-- Diameter of the wheels, in meters, defaults to 0.15 m -->
+    <wheelDiameter>0.2410</wheelDiameter>
+    <!-- Wheel acceleration, in rad/s^2, defaults to 0.0 rad/s^2 -->
+    <!--wheelAcceleration>1.0</wheelAcceleration-->
+    <!-- Maximum torque which the wheels can produce, in Nm, defaults to 5 Nm -->
+    <torque>20</torque>
+    <!-- Topic to receive geometry_msgs/Twist message commands, defaults to `cmd_vel` -->
+    <commandTopic>cmd_vel</commandTopic>
+    <!-- Topic to publish nav_msgs/Odometry messages, defaults to `odom` -->
+    <odometryTopic>odom</odometryTopic>
+    <!-- Odometry frame, defaults to `odom` -->
+    <odometryFrame>odom</odometryFrame>
+    <!-- Robot frame to calculate odometry from, defaults to `base_footprint` -->
+    <robotBaseFrame>base_link</robotBaseFrame>
+    <!-- Odometry source, 0 for ENCODER, 1 for WORLD, defaults to WORLD -->
+    <!--odometrySource>1</odometrySource-->
+    <!-- Set to true to publish transforms for the wheel links, defaults to false -->
+    <publishWheelTF>true</publishWheelTF>
+    <!-- Set to true to publish transforms for the odometry, defaults to true -->
+    <publishOdometryTf>true</publishOdometryTf>
+    <!-- Set to true to publish sensor_msgs/JointState on /joint_states for the wheel joints, defaults to false -->
+    <!--publishWheelJointState>true</publishWheelJointState-->
+    <!-- Set to true to swap right and left wheels, defaults to true -->
+    <publishOdometryMsg>true</publishOdometryMsg>
+    <!--publishOdomTF>true</publishOdomTF-->
+    <!--rosDebugLevel>na</rosDebugLevel-->
+    <!--odometrySource>1</odometrySource-->
+  </plugin>
     </model>
 </sdf>

@@ -130,6 +130,10 @@ target_link_libraries(plugin_gazebo_ros_gps ${Boost_LIBRARIES} ${GAZEBO_LIBRARIE
 
 add_dependencies(plugin_gazebo_ros_gps ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
+add_library(plugin_diffdrive_plugin_multi_wheel src/diffdrive_plugin_multi_wheel.cpp)
+target_link_libraries(plugin_diffdrive_plugin_multi_wheel ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
+add_dependencies(plugin_diffdrive_plugin_multi_wheel ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
@@ -171,6 +175,7 @@ add_dependencies(plugin_gazebo_ros_gps ${${PROJECT_NAME}_EXPORTED_TARGETS} ${cat
 
 install(TARGETS
   plugin_gazebo_ros_gps
+  plugin_diffdrive_plugin_multi_wheel
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -216,3 +221,4 @@ install(TARGETS
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+link_directories(${GAZEBO_LIBRARY_DIRS})
