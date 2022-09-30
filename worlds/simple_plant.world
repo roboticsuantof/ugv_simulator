@@ -138,7 +138,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -243,7 +243,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -348,7 +348,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -453,7 +453,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -558,7 +558,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -663,7 +663,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -768,7 +768,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -873,7 +873,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -978,7 +978,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1083,7 +1083,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1188,7 +1188,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1293,7 +1293,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1398,7 +1398,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -1503,7 +1503,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -2846,7 +2846,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -2951,7 +2951,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3056,7 +3056,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3161,7 +3161,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3266,7 +3266,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3371,7 +3371,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3476,7 +3476,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3581,7 +3581,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3686,7 +3686,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3791,7 +3791,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -3896,7 +3896,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4001,7 +4001,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4320,7 +4320,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4425,7 +4425,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4530,7 +4530,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4635,7 +4635,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4740,7 +4740,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>
@@ -4845,7 +4845,7 @@
           <geometry>
             <mesh>
               <uri>Panel/panelsolar.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>0.05 0.05 0.05</scale>
             </mesh>
           </geometry>
           <surface>

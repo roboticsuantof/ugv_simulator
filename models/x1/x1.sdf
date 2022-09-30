@@ -275,6 +275,23 @@
         <self_collide>0</self_collide>
         <enable_wind>1</enable_wind>
         <kinematic>0</kinematic>
+        <sensor name="imu_sensor" type="imu">
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <topic>imu</topic>
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <topicName>imu</topicName>
+        <bodyName>imu_link</bodyName>
+        <updateRateHZ>10.0</updateRateHZ>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+        <frameName>imu_link</frameName>
+        <initialOrientationAsReference>false</initialOrientationAsReference>
+      </plugin>
+      <pose>0 0 0 0 0 0</pose>
+    </sensor>
       </link>
       <link name='front_left_wheel'>
         <pose>0.256 0.2854 0.03282 0 -0 0</pose>
@@ -594,7 +611,7 @@
             </noise>
           </ray>
           <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
-            <!-- <robotNamespace>siar</robotNamespace>  -->
+
             <topicName>os1_cloud_node_points</topicName>
             <frameName>os1_sensor</frameName>
             <min_range>0.8</min_range>
@@ -627,7 +644,7 @@
         <referenceAltitude>0</referenceAltitude>
     </plugin>
     <plugin name="diffdrive_plugin_multi_wheel" filename="libplugin_diffdrive_plugin_multi_wheel.so">
-      <robotNamespace>gazebo</robotNamespace>
+    
     <!-- Plugin update rate in Hz -->
     <updateRate>10</updateRate>
     <!-- Name of left joint, defaults to `left_joint` -->
@@ -666,5 +683,8 @@
     <!--rosDebugLevel>na</rosDebugLevel-->
     <!--odometrySource>1</odometrySource-->
   </plugin>
+
+
+  
     </model>
 </sdf>
