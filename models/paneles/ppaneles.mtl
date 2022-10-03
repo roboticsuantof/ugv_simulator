@@ -1,0 +1,22 @@
+#
+## Alias OBJ Material File
+# Exported from SketchUp, (c) 2000-2012 Trimble Navigation Limited
+
+newmtl FrontColor
+Ka 0.000000 0.000000 0.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.330000 0.330000 0.330000
+
+newmtl Metal_Panel
+Ka 0.000000 0.000000 0.000000
+Kd 0.560784 0.615686 0.619608
+Ks 0.330000 0.330000 0.330000
+map_Kd paneles/Metal_Panel.jpg
+
+newmtl Translucent_Glass_Sky_Reflection
+Ka 0.000000 0.000000 0.000000
+Kd 0.494118 0.541176 0.717647
+Ks 0.330000 0.330000 0.330000
+d 0.520000
+map_Kd paneles/Translucent_Glass_Sky_Reflection.jpg
+

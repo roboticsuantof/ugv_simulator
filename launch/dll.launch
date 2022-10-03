@@ -1,0 +1,48 @@
+<launch>
+  # Fake odometry. You better use a good odometry estrimator as LOAM
+  <node pkg="tf" type="static_transform_publisher" name="odom_tf" args="0 0 0 0 0 0 odom base_link 10" />
+  # termica map conf
+  <arg name="base_frame_id" default="base_link"/>
+  <arg name="odom_frame_id" default="odom"/>
+  <arg name="global_frame_id" default="world"/>
+  <arg name="initial_x" default="54.6"/>
+  <arg name="initial_y" default="12.6"/>
+  <arg name="initial_z" default="2.0"/>
+  <arg name="initial_a" default="3.040"/>
+  <arg name="map" default="terreno_full.bt" />
+  <arg name="map_path" default="$(find ugv_simulator)/tests/$(arg map)"/>
+  <arg name="use_odometry" default="false"/>
+  <arg name="use_yaw_increments" default="$(eval not use_odometry)"/>
+  <arg name="use_imu" default="true"/>
+    # Fake odometry. You better use a good odometry estimator as LOAM
+  <node pkg="tf2_ros" type="static_transform_publisher" name="static_odom_tf" args="0 0 0 0 0 0 odom base_link"
+  unless="$(arg use_odometry)"/>
+  <!-- <include file="$(find marsupial_launchers)/drone_launch/loam_odometry.launch" if="$(arg use_odometry)">
+    <arg name="inverted_lidar" value="true"/>
+  </include> -->
+  # Launch DLL
+  <node name="dll_node" type="dll_node" pkg="dll" output="screen">
+    <remap from="/dll_node/initial_pose" to="/initialpose"/>
+    <remap from="/imu" to="/dji_sdk/imu"/>
+    <param name="in_cloud" value="/os1_cloud_node/points_non_dense" />
+    <param name="base_frame_id" value="$(arg base_frame_id)" />
+    <param name="odom_frame_id" value="$(arg odom_frame_id)" />
+    <param name="global_frame_id" value="$(arg global_frame_id)" />
+    <param name="rate" value="10.0" />
+    <param name="map_path" value="$(arg map_path)" />
+    <param name="sensor_dev" value="0.05" />
+    <param name="publish_point_cloud" value="true" />
+    <param name="update_min_d" value="0.01" />
+    <param name="update_min_a" value="0.01" />
+    <param name="update_min_time" value="0.1" />
+    <param name="initial_x"   value="$(arg initial_x)"/>
+    <param name="initial_y"   value="$(arg initial_y)"/>
+    <param name="initial_z"   value="$(arg initial_z)"/>
+    <param name="initial_a"   value="$(arg initial_a)"/>
+    <param name="use_imu" value="$(arg use_imu)" />
+    <param name="use_yaw_increments" value="$(arg use_yaw_increments)"/>
+    <param name="align_method" value="1" />  # 1: DLL, 2: NDT, 3: ICP
+    <param name="use_yaw_increments" value="true"/>
+    <param name="n_downsample" value="3"/>
+  </node>
+</launch>
