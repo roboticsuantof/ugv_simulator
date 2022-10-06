@@ -19,7 +19,7 @@
           <pose>0 0 0 -1.58 0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/grisu/ugvsolar_ws/src/simulacion_ugv/models/paneles/18panel.dae</uri>
+              <uri>model://paneles/18panel.dae</uri>
               <scale>0.27 0.27 0.27</scale>
             </mesh>
           </geometry>
@@ -32,7 +32,7 @@
           <pose>0 0 0 -1.58 0 0</pose>
           <geometry>
             <mesh>
-              <uri>/home/grisu/ugvsolar_ws/src/simulacion_ugv/models/paneles/18panel.dae</uri>
+              <uri>model://paneles/18panel.dae</uri>
               <scale>0.27 0.27 0.27</scale>
             </mesh>
             <material>
