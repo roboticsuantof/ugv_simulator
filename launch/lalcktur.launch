@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="world"         default="lalcktur"/> 
+  <env name="GAZEBO_MODEL_PATH" value="$(find ugv_simulator)/models:$(optenv GAZEBO_MODEL_PATH)"/>
+  <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find ugv_simulator)/models"/>
+
+  <include file="$(find ugv_simulator)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find ugv_simulator)/worlds/$(arg world).world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
+    <arg name="paused" value="true"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="recording" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="false"/>
+  </include>
+  <arg name="xS" default="0"/>
+  <arg name="yS" default="0"/>
+  <arg name="zS" default="15"/>
+  <arg name="rollS" default="0"/>
+  <arg name="pitchS" default="0"/>
+  <arg name="yawS" default="0"/>
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false"    args="-d $(find ugv_simulator)/viz/mapping.rviz" />
+    <node name="spawn_x1" pkg="gazebo_ros" type="spawn_model" args="-file $(find ugv_simulator)/models/x1/x1.sdf -sdf -model x1 
+    -x $(arg xS) -y $(arg yS) -z $(arg zS) 
+    -R $(arg rollS) -P $(arg pitchS) -Y $(arg yawS)" output="screen" />
+
+    <include file="$(find ugv_simulator)/launch/tf_frames.launch">
+ </include>
+</launch>
