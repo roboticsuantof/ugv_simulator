@@ -94,7 +94,7 @@
           <geometry>
             <mesh>
               <uri>model://lalcktur_base/lalcktur_base.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>1.6 1.6 1.6</scale>
             </mesh>
           </geometry>
           <transparency>0</transparency>
@@ -107,7 +107,7 @@
           <geometry>
             <mesh>
               <uri>model://lalcktur_base/lalcktur_base.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>1.6 1.6 1.6</scale>
             </mesh>
           </geometry>
           <surface>
@@ -169,6 +169,8 @@
       <real_time>366 622379268</real_time>
       <wall_time>1666572398 569761127</wall_time>
       <iterations>366135</iterations>
+
+
       <model name='ground_plane'>
         <pose>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -179,9 +181,21 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
+      <!--                      humano                             -->
+      <model name='trabajador1'>
+        <pose>3.47743 0.549476 0 1.5708 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='linkh'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+
       <model name='lalcktur_paneles'>
         <pose>95.8024 -0.518964 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
+        <scale>1.6 1.6 1.6</scale>
         <link name='link_0'>
           <pose>95.8024 -0.518963 0 0 0 -3.14159</pose>
           <velocity>0 0 0 0 -0 0</velocity>
@@ -191,7 +205,7 @@
       </model>
       <model name='lalcktur_rejas'>
         <pose>96.6644 -1.85632 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
+        <scale>1.6 1.6 1.6</scale>
         <link name='link_0'>
           <pose>96.6644 -1.85632 0 1.5708 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
@@ -201,7 +215,7 @@
       </model>
       <model name='pruebabase'>
         <pose>95.7206 -0.729718 0 0 -0 0</pose>
-        <scale>1 1 1</scale>
+        <scale>1.6 1.6 1.6</scale>
         <link name='link_2'>
           <pose>95.7206 -0.729718 0 1.57399 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
@@ -279,7 +293,7 @@
           <geometry>
             <mesh>
               <uri>model://lalcktur_paneles/lalcktur_paneles.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>1.6 1.6 1.6</scale>
             </mesh>
           </geometry>
           <material>
@@ -300,7 +314,7 @@
           <geometry>
             <mesh>
               <uri>model://lalcktur_paneles/lalcktur_paneles.obj</uri>
-              <scale>1 1 1</scale>
+              <scale>1.6 1.6 1.6</scale>
             </mesh>
           </geometry>
           <surface>
@@ -358,7 +372,8 @@
       <pose>99.8496 -6.52813 0 0 -0 0</pose>
     </model>
 
-    <model name='lalcktur_rejas'>
+
+    <model name='trabajador1'>
       <link name='link_0'>
         <inertial>
           <mass>1</mass>
@@ -370,14 +385,13 @@
             <iyz>0</iyz>
             <izz>0.166667</izz>
           </inertia>
-          <pose>0 0 0 0 -0 0</pose>
         </inertial>
-        <pose>-2.4e-05 -0 0 1.5708 -0 0</pose>
+        <pose>3.47743 21 0 0 -0 0</pose>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://lalcktur_rejas/lalcktur_reja.obj</uri>
+              <uri>model://trabajador1/persona.obj</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -398,8 +412,119 @@
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
-              <uri>model://lalcktur_rejas/lalcktur_reja.obj</uri>
+              <uri>model://trabajador1/persona.obj</uri>
               <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <!--pose>99.8496 -6.52813 0 0 -0 0</pose-->
+    </model>
+
+    <model name='estacion'>
+      <link name='link_0'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+        </inertial>
+        <pose>-7.8 0 21.34 1.5708 -0 0</pose>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://estacion/inversores.obj</uri>
+              <scale>0.5 0.8 1</scale>
+            </mesh>
+          </geometry>
+          <!--material>
+            <lighting>1</lighting>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+            <shader type='pixel'/>
+          </material-->
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://estacion/inversores.obj</uri>
+              <scale>0.5 0.8 1</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <static>1</static>
+      <allow_auto_disable>1</allow_auto_disable>
+      <!--pose>99.8496 -6.52813 0 0 -0 0</pose-->
+    </model>
+
+
+
+
+
+    <model name='lalcktur_rejas'>
+      <link name='link_0'>
+        <inertial>
+          <mass>1</mass>
+          <inertia>
+            <ixx>0.166667</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.166667</iyy>
+            <iyz>0</iyz>
+            <izz>0.166667</izz>
+          </inertia>
+          <pose>0 0 0 0 -0 0</pose>
+        </inertial>
+        <pose>-2.4e-05 -0 0 1.5708 -0 0</pose>
+        <visual name='visual'>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://lalcktur_rejas/lalcktur_reja.obj</uri>
+              <scale>1.6 1.6 1.6</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <lighting>1</lighting>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+            <shader type='pixel'/>
+          </material>
+          <transparency>0</transparency>
+          <cast_shadows>1</cast_shadows>
+        </visual>
+        <collision name='collision'>
+          <laser_retro>0</laser_retro>
+          <max_contacts>10</max_contacts>
+          <pose>0 0 0 0 -0 0</pose>
+          <geometry>
+            <mesh>
+              <uri>model://lalcktur_rejas/lalcktur_reja.obj</uri>
+              <scale>1.6 1.6 1.6.</scale>
             </mesh>
           </geometry>
           <surface>
