@@ -2,7 +2,7 @@
 
 <launch>
 
-  <arg name="world"         default="lalcktur"/> 
+  <arg name="world"         default="lalckturv2_2"/> 
   <env name="GAZEBO_MODEL_PATH" value="$(find ugv_simulator)/models:$(optenv GAZEBO_MODEL_PATH)"/>
   <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find ugv_simulator)/models"/>
 
