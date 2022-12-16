@@ -22,10 +22,37 @@
   <arg name="rollS" default="0"/>
   <arg name="pitchS" default="0"/>
   <arg name="yawS" default="0"/>
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find heuristic_planners)/rviz/planners_2d_lal.rviz"/>
+  <!--node name="rviz" pkg="rviz" type="rviz" respawn="false"    args="-d $(find ugv_simulator)/viz/mapping.rviz" /-->
     <node name="spawn_x1" pkg="gazebo_ros" type="spawn_model" args="-file $(find ugv_simulator)/models/x1/x1.sdf -sdf -model x1 
     -x $(arg xS) -y $(arg yS) -z $(arg zS) 
     -R $(arg rollS) -P $(arg pitchS) -Y $(arg yawS)" output="screen" />
 
     <include file="$(find ugv_simulator)/launch/tf_frames.launch">
+
  </include>
+ <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+      <remap from="cloud_in" to="os1_cloud_node_points"/>
+      <remap from="scan" to="plctolaser/scan"/>
+      <rosparam>
+            target_frame: os1_sensor # Leave disabled to output scan in pointcloud frame
+            transform_tolerance: 0.01
+            min_height: 0.0
+            max_height: 1
+
+            angle_min: -1.5708 # -M_PI/2
+            angle_max: 1.5708 # M_PI/2
+            angle_increment: 0.0087 # M_PI/360.0
+            scan_time: 0.3333
+            range_min: 0.45
+            range_max: 4.0
+            use_inf: false
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 1
+        </rosparam>
+  </node>
 </launch>

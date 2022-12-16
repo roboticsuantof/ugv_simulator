@@ -1,0 +1,20 @@
+<launch>
+
+  <arg name="path" default="$(find ugv_simulator)/tests/mapV2.bt"/>
+  <arg name="changeIdFrame" default="/talker/changes"/>
+  <arg name="published_pc" default="/os1_cloud_node_points"/>
+	<!-- you can load an exisiting tree with <node ... args="tree.bt"> !-->
+	<node pkg="octomap_server" type="octomap_tracking_server_node" name="octomap_talker" output="screen" args="$(arg path)">
+		<param name="resolution" value="0.1" />
+		<param name="frame_id" type="string" value="world" />
+		<param name="base_frame_id" value="base_link"/>
+		<param name="sensor_model/max_range" value="15.0" />
+		<param name="save_directory" value="$(find ugv_simulator)/tests/" />
+		<param name="track_changes" value="false"/>
+		<param name="listen_changes" value="true"/>
+		<param name="topic_changes" value="/octomap_tracking_server/changeset" />
+    <param name="change_id_frame" value="$(arg changeIdFrame)" />
+    <param name="min_change_pub" value="1" />
+		<remap from="cloud_in" to="/os1_cloud_node_points" />
+	</node>
+</launch>

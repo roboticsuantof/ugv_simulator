@@ -5,12 +5,14 @@
   <arg name="world"         default="lalckturv2_2"/> 
   <env name="GAZEBO_MODEL_PATH" value="$(find ugv_simulator)/models:$(optenv GAZEBO_MODEL_PATH)"/>
   <env name="GAZEBO_RESOURCE_PATH" value="${GAZEBO_RESOURCE_PATH}:$(find ugv_simulator)/models"/>
+   <arg name="guii" default="true"/>
+   <arg name="pause" default="true"/>
 
   <include file="$(find ugv_simulator)/launch/empty_world.launch">
     <arg name="world_name" value="$(find ugv_simulator)/worlds/$(arg world).world"/> <!-- Note: the world_name is with respect to GAZEBO_RESOURCE_PATH environmental variable -->
-    <arg name="paused" value="true"/>
+    <arg name="paused" default="$(arg pause)"/>
     <arg name="use_sim_time" value="true"/>
-    <arg name="gui" value="true"/>
+    <arg name="gui" default="$(arg guii)"/>
     <arg name="recording" value="false"/>
     <arg name="debug" value="false"/>
     <arg name="verbose" value="false"/>
@@ -28,5 +30,12 @@
 
 
 <include file="$(find ugv_simulator)/launch/tf_frames.launch">
- </include>
+</include>
+<!--node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+      <remap from="cloud_in" to="os1_cloud_node_points"/>
+      <remap from="scan" to="plctolaser/scan"/>
+      
+</node-->
+<!--include file="$(find ugv_simulator)/launch/octomap_mapping.launch">
+ </include-->
 </launch>

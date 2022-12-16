@@ -75,7 +75,7 @@ read fidelity
    then
       echo -e "\e[7;35m launching LOW FIDELITY $name1Comp1 of $nameSetup1 \e[0m"
       echo -e "\e[7;31m <<\e[7;31m"  
-      roslaunch ugv_simulator lalcktur.launch world:=lalckturv2_2Lowfi
+      roslaunch ugv_simulator lalcktur.launch world:=lalckturv2_4Lowfi
 	   echo -e " \e[7;31m" 
 	else
 	   echo -e "\e[7;35m valor no correcto\e[0m" 

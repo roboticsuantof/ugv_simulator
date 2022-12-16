@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/kiriol/solar_ugv_ws/src/ugv_simulator/build/devel/setup.sh

@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(ugv_simulator)
-
+set(CMAKE_CXX_STANDARD 14)
+#set(CMAKE_BUILD_TYPE Release)
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+#add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -12,8 +13,21 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   gazebo_ros
-  gazebo_dev)
+  gazebo_dev
+  sensor_msgs
+  geometry_msgs
+  #nav_msgs
+  tf
+  dynamic_reconfigure
 
+  )
+
+  #find_package(Ceres REQUIRED)
+  find_package(gazebo REQUIRED)
+  find_package(sensor_msgs REQUIRED)
+  #find_package(PCL REQUIRED)
+  #find_package(PkgConfig REQUIRED)
+  #pkg_check_modules(gsl REQUIRED gsl)
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
@@ -69,10 +83,11 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs
-# )
+ #generate_messages(
+#  DEPENDENCIES
+ #  std_msgs
+ #  geometry_msgs
+ #)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -105,10 +120,11 @@ generate_dynamic_reconfigure_options(
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  INCLUDE_DIRS include
+  #INCLUDE_DIRS include ${EXTERNAL_INCLUDE_DIRS}
   LIBRARIES ugv_simulator
-  CATKIN_DEPENDS roscpp rospy std_msgs
+  CATKIN_DEPENDS roscpp rospy std_msgs sensor_msgs geometry_msgs tf gazebo_ros 
 #  DEPENDS system_lib
+  DEPENDS GAZEBO 
 )
 
 ###########
@@ -117,17 +133,40 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
 
+include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS}) #${PCL_INCLUDE_DIRS} ${gsl_INCLUDE_DIRS}
 
+#link_directories(${PCL_LIBRARY_DIRS})
+#add_definitions(${PCL_DEFINITIONS})
+
+#set(EXTERNAL_INCLUDE_DIRS ${Eigen_INCLUDE_DIRS} ${SUITESPARSE_INCLUDE_DIRS} ${PCL_INCLUDE_DIRS} )
+#set(EXTERNAL_LIBS ${SUITESPARSE_LIBRARIES} ${PCL_LIBRARIES} )
+
+#include_directories(
+ # ${catkin_INCLUDE_DIRS}
+#)
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/ugv_simulator.cpp
-# )
+ #add_library(${PROJECT_NAME}
+ #  src/${PROJECT_NAME}/ugv_simulator.cpp
+#)
+#add_executable(mcl3d_node src/mcl3d_node.cpp)
+#add_dependencies(mcl3d_node ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(mcl3d_node ${catkin_LIBRARIES} ${gsl_LIBRARIES})
+
+#add_executable(grid3d_node src/grid3d_node.cpp) 
+#add_dependencies(grid3d_node ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(grid3d_node ${catkin_LIBRARIES} ${gsl_LIBRARIES} )
+
+#add_executable(pcdToOctree src/pcdToOctree.cpp)
+#add_dependencies(pcdToOctree ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(pcdToOctree ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+add_executable(ugv_autoop src/ugv_autoop.cpp)
+add_dependencies(ugv_autoop ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(ugv_autoop ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 add_library(plugin_gazebo_ros_gps src/gazebo_ros_gps.cpp)
 target_link_libraries(plugin_gazebo_ros_gps ${Boost_LIBRARIES} ${GAZEBO_LIBRARIES} ${catkin_LIBRARIES})
-
 add_dependencies(plugin_gazebo_ros_gps ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 add_library(plugin_diffdrive_plugin_multi_wheel src/diffdrive_plugin_multi_wheel.cpp)
@@ -176,6 +215,10 @@ add_dependencies(plugin_diffdrive_plugin_multi_wheel ${${PROJECT_NAME}_EXPORTED_
 install(TARGETS
   plugin_gazebo_ros_gps
   plugin_diffdrive_plugin_multi_wheel
+  ugv_autoop
+  #pcdToOctree
+  #grid3d_node
+
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
@@ -201,6 +244,9 @@ install(TARGETS
 #   FILES_MATCHING PATTERN "*.h"
 #   PATTERN ".svn" EXCLUDE
 # )
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
 # install(FILES

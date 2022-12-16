@@ -183,7 +183,7 @@
       </model>
       <!--                      humano                             -->
       <model name='trabajador1'>
-        <pose>3.47743 0.549476 0 1.5708 -0 0</pose>
+        <pose>3.47743 0 21 1.5708 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='linkh'>
           <pose>0 0 0 0 -0 0</pose>
@@ -296,14 +296,14 @@
               <scale>1.6 1.6 1.6</scale>
             </mesh>
           </geometry>
-          <material>
+          <!--material>
             <lighting>1</lighting>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
               <name>Gazebo/Grey</name>
             </script>
             <shader type='pixel'/>
-          </material>
+          </material-->
           <transparency>0</transparency>
           <cast_shadows>1</cast_shadows>
         </visual>
@@ -386,7 +386,7 @@
             <izz>0.166667</izz>
           </inertia>
         </inertial>
-        <pose>3.47743 21 0 0 -0 0</pose>
+        <pose>0 0 0 0 -0 0</pose>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
@@ -399,7 +399,7 @@
             <lighting>1</lighting>
             <script>
               <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
+              <name>Gazebo/Orange</name>
             </script>
             <shader type='pixel'/>
           </material>
@@ -421,13 +421,13 @@
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
       </link>
-      <static>1</static>
+      <static>0</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <!--pose>99.8496 -6.52813 0 0 -0 0</pose-->
+      <pose>3.47743 0 21 0 0 -0 0</pose>
     </model>
 
     <model name='estacion'>
-      <link name='link_0'>
+      <link name='linke'>
         <inertial>
           <mass>1</mass>
           <inertia>
@@ -439,13 +439,13 @@
             <izz>0.166667</izz>
           </inertia>
         </inertial>
-        <pose>-7.8 0 21.34 1.5708 -0 0</pose>
+        <pose>-5 0 0 0 -0 0</pose>
         <visual name='visual'>
           <pose>0 0 0 0 -0 0</pose>
           <geometry>
             <mesh>
               <uri>model://estacion/inversores.obj</uri>
-              <scale>0.5 0.8 1</scale>
+              <scale>0.5 0.55 0.9</scale>
             </mesh>
           </geometry>
           <!--material>
@@ -466,7 +466,7 @@
           <geometry>
             <mesh>
               <uri>model://estacion/inversores.obj</uri>
-              <scale>0.5 0.8 1</scale>
+              <scale>0.5 0.55 0.9</scale>
             </mesh>
           </geometry>
         </collision>
@@ -476,7 +476,7 @@
       </link>
       <static>1</static>
       <allow_auto_disable>1</allow_auto_disable>
-      <!--pose>99.8496 -6.52813 0 0 -0 0</pose-->
+      <pose>-8.1 0 21.34 1.570801 -0 1.570801</pose>
     </model>
 
 

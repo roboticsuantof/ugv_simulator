@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="arco_path_tracker" type="new_arco_traj_tracker_node" name="arco_traj_tracker_node" output="screen"># launch-prefix="gdb -ex run --args" >>
+        <rosparam command="load" file="$(find arco_path_tracker)/cfg/navigation2.yaml"/>
+        <param name="world_frame" value="world"/> 
+        <!--remap from="/cmd_vel" to="/arco/idmind_motors/set_velocities"/-->
+        <!-- <remap from="/scanMulti" to="/arco/scan"/> -->
+    </node>
+
+</launch>
