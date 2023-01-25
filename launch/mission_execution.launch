@@ -3,8 +3,7 @@
 
     <arg name="ugv_name" default="ugv" /> 
     
-    
-    <arg name="mission_file" default="tramo_2022_12_15_185010" /> 
+    <arg name="mission_file" default="optimizado_tramo_2023_1_8_0923" /> 
     <arg name="able_tracker_ugv" default="true" /> 
     <arg name="able_tracker_uav" default="false" /> 
     <arg name="able_tracker_tether" default="false" /> 
@@ -14,9 +13,10 @@
     <arg name="uav_odom_frame" default="odom" /> 
     <arg name="uav_takeoff_height" default="2" /> 
     <arg name="interpolation_distance" default="0.2"/>
+    <arg name="time_max" default="30"/>
 
-    <node name="mission_interface" pkg="marsupial_mission_interface" type="mission_interface_node" output="screen" launch-prefix="gdb -ex run --args">
-        <rosparam command="load" file="$(find marsupial_mission_interface)/cfg/offset_maps_dll/offset_maps_dll_$(arg map_name).yaml"/>
+    <node name="mission_interface" pkg="marsupial_mission_interface" type="mission_interface_node" output="screen">  <!--launch-prefix="gdb -ex run args"-->
+        <!--rosparam command="load" file="$(find marsupial_mission_interface)/cfg/offset_maps_dll/offset_maps_dll_$(arg map_name).yaml"/-->
         <param name="path_file" value="$(find ugv_simulator)/paths/$(arg mission_file).yaml"/> 
         <param name="map_name" value="$(arg map_name)"/> 
         <param name="able_tracker_ugv" value="$(arg able_tracker_ugv)"/> 
@@ -27,8 +27,9 @@
         <param name="uav_base_frame" value="$(arg uav_base_frame)"/> 
         <param name="uav_odom_frame" value="$(arg uav_odom_frame)"/> 
         <param name="takeoff_height" value="$(arg uav_takeoff_height)"/> 
-        <param name="used_length_reached" value="true"/> 
+        <!--param name="used_length_reached" value="true"/--> 
         <param name="interpolation_distance" value="$(arg interpolation_distance)" />
+        <param name="time_max" value="$(arg time_max)" />
     </node>
 
 </launch>

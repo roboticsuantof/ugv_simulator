@@ -22,7 +22,7 @@
   <arg name="rollS" default="0"/>
   <arg name="pitchS" default="0"/>
   <arg name="yawS" default="0"/>
-  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find heuristic_planners)/rviz/planners_2d_lal.rviz"/>
+  <node pkg="rviz" name="rviz" type="rviz" args="-d $(find ugv_simulator)/viz/dll.rviz"/>
   <!--node name="rviz" pkg="rviz" type="rviz" respawn="false"    args="-d $(find ugv_simulator)/viz/mapping.rviz" /-->
     <node name="spawn_x1" pkg="gazebo_ros" type="spawn_model" args="-file $(find ugv_simulator)/models/x1/x1.sdf -sdf -model x1 
     -x $(arg xS) -y $(arg yS) -z $(arg zS) 

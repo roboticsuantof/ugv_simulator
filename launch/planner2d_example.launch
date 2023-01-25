@@ -39,7 +39,7 @@
     </node>
 
     <arg name="output" default="screen"/>
-    <node pkg="heuristic_planners" type="planner_ros_node" name="planner_ros_node" output="$(arg output)">
+    <node pkg="heuristic_planners" type="planner_ros_node" name="planner_ros_node" output="$(arg output)" >
         <remap from="points" to="/os1_cloud_node_points"/> 
         <remap from="grid" to="/map"                        unless="$(arg use_costs)"/>
         <remap from="grid" to="/costmap_2d/costmap/costmap" if="$(arg use_costs)"/>
